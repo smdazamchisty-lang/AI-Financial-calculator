@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAR_CHEST // Survival Calculator</title>
+    <style>
+        /* CSS Variables for quick "Vibe" shifts */
+        :root {
+            --bg: #09090b;
+            --surface: #18181b;
+            --border: #27272a;
+            --accent: #f97316; /* Emergency Orange */
+            --text-main: #f4f4f5;
+            --text-dim: #71717a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            padding: 40px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,1);
+        }
+
+        header {
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .accent-text {
+            color: var(--accent);
+        }
+
+        p {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: var(--text-dim);
+        }
+
+        input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--border);
+            color: var(--text-main);
+            font-size: 2rem;
+            padding: 10px 0;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+        }
+
+        button {
+            width: 100%;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-family: inherit;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: transform 0.1s;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #results {
+            margin-top: 30px;
+            display: none; /* Hidden until calculated */
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .result-label {
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .result-value {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .footer-note {
+            margin-top: 20px;
+            font-size: 0.6rem;
+            text-align: center;
+            color: var(--text-dim);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>War_Chest<span class="accent-text">.AI</span></h1>
+            <p>Financial re-allocation for high-risk survival scenarios. Enter total liquidity to begin.</p>
+        </header>
+
+        <div class="input-group">
+            <label>Current Funds (USD)</label>
+            <input type="number" id="amount" placeholder="0.00">
+        </div>
+
+        <button onclick="calculateSurvival()">Initialize Protocol</button>
+
+        <div id="results">
+            <div class="result-item">
+                <span class="result-label">ESSENTIALS (40%)</span>
+                <span class="result-value" id="val-essentials">$0</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">HARD ASSETS (40%)</span>
+                <span class="result-value" id="val-assets">$0</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">MOBILITY CASH (20%)</span>
+                <span class="result-value" id="val-mobility">$0</span>
+            </div>
+            <p class="footer-note">Calculated using the Defensive Pivot Model. Stay safe.</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateSurvival() {
+            const amount = document.getElementById('amount').value;
+            if(!amount || amount <= 0) return alert("Enter a valid amount.");
+
+            const essentials = (amount * 0.40).toFixed(2);
+            const assets = (amount * 0.40).toFixed(2);
+            const mobility = (amount * 0.20).toFixed(2);
+
+            document.getElementById('val-essentials').innerText = '$' + essentials;
+            document.getElementById('val-assets').innerText = '$' + assets;
+            document.getElementById('val-mobility').innerText = '$' + mobility;
+
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
