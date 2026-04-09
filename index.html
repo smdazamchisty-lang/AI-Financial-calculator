@@ -159,15 +159,15 @@
         <div id="results">
             <div class="result-item">
                 <span class="result-label">ESSENTIALS (40%)</span>
-                <span class="result-value" id="val-essentials">$0</span>
+                <span class="result-value" id="val-essentials">₹0</span>
             </div>
             <div class="result-item">
                 <span class="result-label">HARD ASSETS (40%)</span>
-                <span class="result-value" id="val-assets">$0</span>
+                <span class="result-value" id="val-assets">₹0</span>
             </div>
             <div class="result-item">
                 <span class="result-label">MOBILITY CASH (20%)</span>
-                <span class="result-value" id="val-mobility">$0</span>
+                <span class="result-value" id="val-mobility">₹0</span>
             </div>
             <p class="footer-note">Calculated using the Defensive Pivot Model. Stay safe.</p>
         </div>
@@ -182,9 +182,9 @@
             const assets = (amount * 0.40).toFixed(2);
             const mobility = (amount * 0.20).toFixed(2);
 
-            document.getElementById('val-essentials').innerText = '$' + essentials;
-            document.getElementById('val-assets').innerText = '$' + assets;
-            document.getElementById('val-mobility').innerText = '$' + mobility;
+            document.getElementById('val-essentials').innerText = '₹' + essentials;
+            document.getElementById('val-assets').innerText = '₹' + assets;
+            document.getElementById('val-mobility').innerText = '₹' + mobility;
 
             document.getElementById('results').style.display = 'block';
         }
